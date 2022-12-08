@@ -1,8 +1,9 @@
 package Poker.example;
 
-public final class Hand {
-    private final String[] cards;
+public class Hand {
+    protected final String[] cards;
 
+    public Hand(){ cards = new String[5];}
     public Hand(String[] cards) {
         this.cards = cards;
     }
@@ -12,4 +13,6 @@ public final class Hand {
         line = String.format("%s %s %s %s %s", (Object[]) cards);
         return line;
     }
+
+
 }
