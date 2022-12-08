@@ -1,7 +1,7 @@
 package Poker.example;
 
 public class Hand {
-    protected final String[] cards;
+    protected String[] cards;
 
     public Hand(){ cards = new String[5];}
     public Hand(String[] cards) {
@@ -13,6 +13,7 @@ public class Hand {
         line = String.format("%s %s %s %s %s", (Object[]) cards);
         return line;
     }
+
 
 
 }

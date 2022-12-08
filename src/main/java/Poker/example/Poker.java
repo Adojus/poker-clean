@@ -12,6 +12,9 @@ public final class Poker {
     static final int CARDS_PER_PLAYER = 5;
     static ArrayList<Round> rounds = new ArrayList<>();
 
+    public static Player playerOne = new Player();
+    public static Player playerTwo = new Player();
+
     public static void main(String[] args) {
 
         try{
@@ -21,8 +24,13 @@ public final class Poker {
             System.exit(0);
         }
 
-        for(Round round : rounds)
+        for(Round round : rounds){
+            //round.print();
             round.play();
+        }
+        System.out.println("\n-------------------------------");
+        System.out.println("Player 1 total wins: ");
+        playerOne.printWins();
     }
 
     public static void readFile() throws IOException{

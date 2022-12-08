@@ -10,12 +10,13 @@ public final class Round {
         this.SECOND_HAND = secondHand;
     }
 
-    public void print(){
-
-        System.out.println(FIRST_HAND.toString()+" "+ SECOND_HAND.toString());
-    }
     public void play(){
         PlayingHand firstPlayingHand = new PlayingHand(FIRST_HAND);
         PlayingHand secondPlayingHand = new PlayingHand(SECOND_HAND);
+        Game game = new Game();
+
+        game.compareHands(firstPlayingHand,secondPlayingHand);
+        System.out.println("------------------------------------");
+
     }
 }

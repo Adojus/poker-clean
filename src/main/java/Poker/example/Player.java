@@ -11,4 +11,8 @@ public final class Player {
         winCount +=1;
     }
 
+    public void printWins(){
+        System.out.println(winCount);
+    }
+
 }

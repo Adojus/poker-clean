@@ -25,15 +25,12 @@ public class PlayingHand extends Hand{
     //constructor
     public PlayingHand(Hand playerHand){
         this.playerHand = playerHand;
+
         addPossibleHands();
         addPossibleCardValues();
         determineRating();
         findHighestCard();
         findHighestCards();
-    }
-
-    public String getValueToPrint(int value){
-        return valuesToPrint[value-2];
     }
 
 
@@ -49,18 +46,17 @@ public class PlayingHand extends Hand{
         return null;
     }
 
-    //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^USELESS
 
     //populates possibleHands map
     private void addPossibleHands(){
         possibleHands.put("Highest Card",1);
-        possibleHands.put("One Pair", 2);
-        possibleHands.put("Two Pairs", 3);
-        possibleHands.put("Three of a Kind",4);
+        possibleHands.put("One Pair", 2);//
+        possibleHands.put("Two Pairs", 3);//
+        possibleHands.put("Three of a Kind",4);//
         possibleHands.put("Straight",5);
         possibleHands.put("Flush",6);
-        possibleHands.put("Full House",7);
-        possibleHands.put("Four of a Kind",8);
+        possibleHands.put("Full House",7);//
+        possibleHands.put("Four of a Kind",8);//
         possibleHands.put("Straight Flush",9);
         possibleHands.put("Royal Flush",10);
     }
@@ -136,7 +132,6 @@ public class PlayingHand extends Hand{
             playerHandRating = possibleHands.get("Highest Card");
             handName = getKey(playerHandRating);
         }
-        System.out.println(handName);
     }
 
     //returns true if hands conditions are suitable for royal flush
@@ -379,10 +374,57 @@ public class PlayingHand extends Hand{
         return "No known symbol";
     }
 
+
     //formats and returns cards in hand
     public String handToString(){
         String line;
         line = String.format("%s %s %s %s %s", playerHand);
         return line;
     }
+
+    public String handNameToString(){
+        return handName;
+    }
+
+
+
+    public boolean handRatingEquals(PlayingHand opponent){
+        return playerHandRating == opponent.playerHandRating;
+    }
+    public boolean handRatingEquals(int rating){
+        return playerHandRating == rating;
+    }
+    public boolean handRatingIsLessThan(PlayingHand opponent){
+        return playerHandRating < opponent.playerHandRating;
+    }
+
+    /**
+     * determining higher cards between players
+     * @param opponent second players object
+     * @param belonging indicator which arrays to use
+     * @return if local player wins returns 1, if opponent wins returns 2, else returns 0
+     */
+    public int whichPlayerWins(PlayingHand opponent, boolean belonging){
+        int[] localArray = new int[5];
+        int[] opponentArray = new int[5];
+        if(!belonging){
+            opponentArray = opponent.highestCardValues;
+            localArray = highestCardValues;
+        }
+        else {
+            localArray = highestBelongingValues;
+            opponentArray = opponent.highestBelongingValues;
+        }
+        for(int i = localArray.length-1; i >= 0; i--){
+            if(localArray[i]>opponentArray[i]){
+                return 1;
+            }
+            else if(localArray[i]<opponentArray[i]) {
+                return 2;
+            }
+        }
+        return 0;
+    }
+
+
 }
