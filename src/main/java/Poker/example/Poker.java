@@ -15,16 +15,17 @@ public final class Poker {
     public static void main(String[] args) {
 
         try{
-            readRoundsFromFile();
+            readFile();
         }catch(IOException e){
             System.out.println("Can't read file");
             System.exit(0);
         }
 
-        for (Round round : rounds)
-            round.print();
+        for(Round round : rounds)
+            round.play();
     }
-    public static void readRoundsFromFile() throws IOException{
+
+    public static void readFile() throws IOException{
         BufferedReader reader = new BufferedReader(new FileReader(FILE_TO_READ));
         String line;
 
