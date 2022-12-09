@@ -25,10 +25,8 @@ public final class Poker {
         }
 
         for(Round round : rounds){
-            //round.print();
             round.play();
         }
-        System.out.println("\n-------------------------------");
         System.out.println("Player 1 total wins: ");
         playerOne.printWins();
     }

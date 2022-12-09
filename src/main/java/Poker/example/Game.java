@@ -4,11 +4,14 @@ package Poker.example;
 public final class Game {
     public Game(){}
     public void compareHands(PlayingHand firstHand, PlayingHand secondHand){
+
         System.out.println(firstHand.toString()+"    PLAYER 1\n"+
                 firstHand.handNameToString());
         System.out.println("");
         System.out.println(secondHand.toString()+"    PLAYER 2\n"+
                 secondHand.handNameToString());
+
+
 
         if(!firstHand.handRatingEquals(secondHand)){
             if(firstHand.handRatingIsLessThan(secondHand)){

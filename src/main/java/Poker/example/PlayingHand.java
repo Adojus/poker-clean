@@ -16,11 +16,7 @@ public class PlayingHand extends Hand{
     private final Map<String,Integer> possibleHands = new HashMap<>();
     //Map for storing cards values as key and their integer counterpart as value
     private final Map<Character, Integer> possibleCardValues = new HashMap<>();
-    //array storing all possible card values
 
-    private final String[] symbolsToPrint={"Diamonds","Spades","Clubs","Hearts"};
-    private final String[] valuesToPrint={"Two","Three","Four","Five","Six","Seven",
-            "Eight","Nine","Ten","Jack","Queen","King","Ace"};
 
     //constructor
     public PlayingHand(Hand playerHand){
@@ -362,23 +358,11 @@ public class PlayingHand extends Hand{
         return values;
     }
 
-    //finds and returns symbols full name
-    private String findSymbolName(){
-        String card = playerHand.cards[0];
-        char symbol = card.charAt(1);
-        for(String symbolName: symbolsToPrint){
-            if(Character.toLowerCase(symbolName.charAt(0))==Character.toLowerCase(symbol)){
-                return symbolName;
-            }
-        }
-        return "No known symbol";
-    }
-
-
     //formats and returns cards in hand
-    public String handToString(){
+    @Override
+    public String toString(){
         String line;
-        line = String.format("%s %s %s %s %s", playerHand);
+        line = String.format(playerHand.toString());
         return line;
     }
 

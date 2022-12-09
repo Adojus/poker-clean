@@ -13,7 +13,4 @@ public class Hand {
         line = String.format("%s %s %s %s %s", (Object[]) cards);
         return line;
     }
-
-
-
 }
