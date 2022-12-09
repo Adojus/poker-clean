@@ -1,2 +1,3 @@
 # poker-clean
-Cleaned Poker project
+Cleaned Poker project from https://github.com/Adojus/Poker
+
