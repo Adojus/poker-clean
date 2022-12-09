@@ -87,6 +87,7 @@ public class PlayingHand extends Hand{
             handName = getKey(playerHandRating);
         }
         else if(isStraightFlush()){
+            resetPossibleValuesArray();
             playerHandRating = possibleHands.get("Straight Flush");
             handName = getKey(playerHandRating);
         }
