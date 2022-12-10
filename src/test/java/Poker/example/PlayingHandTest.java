@@ -41,6 +41,7 @@ class PlayingHandTest {
 
     @Test
     public void testFirstHandRatingNotEqualsSecondHandRating(){
+
         assertFalse(firstHand.handRatingEquals(secondHand));
     }
     @Test
